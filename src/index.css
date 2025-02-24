@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #54bd95;
+  --color-gold: #ffc728;
+  --color-primary-light: #52bdaa;
+  --color-primary-light-200: #54be96;
+  --color-pink-light: #ffd6d6;
+  --color-secondary: #161c28;
+  --color-secondary-light: #222938;
+  --color-text: #191a15;
+  --color-light: #a6a6a6;
+  --color-black: #000000;
+
+  --breakpoint-xs: 480px;
+}
+
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    background: #ffffff;
+    color: #191a15;
+  }
+
+  h1 {
+    @apply mx-auto max-w-4xl text-center text-[80px] font-bold leading-tight tracking-[-1%]  sm:text-[64px] sm:leading-[76px] text-text;
+  }
+
+  h2 {
+    @apply text-[50px] font-bold leading-tight;
+  }
+
+  h3 {
+    @apply text-[30px] font-bold;
+  }
+
+  p {
+    @apply text-base;
+  }
+  section {
+    @apply px-20 py-10;
+  }
+  footer {
+    @apply px-20 py-8 bg-secondary text-white;
+  }
+}
+
+@layer components {
+  .rounded-btn {
+    @apply bg-primary text-white rounded-full px-5 py-3 font-medium text-base border-none cursor-pointer;
+  }
+  .square-btn {
+    @apply bg-primary text-white rounded-lg px-5 py-2 font-bold text-base border-none cursor-pointer;
+  }
+
+  .nav-li {
+    @apply flex gap-[20px] font-medium text-light;
+
+    & .nav-active {
+      @apply text-black;
+    }
+  }
+
+  /* pricing section */
+  .pricing-card {
+    @apply rounded-lg p-3 flex flex-col items-center;
+  }
+  .list-container {
+    @apply p-5 flex flex-col text-text rounded-lg;
+  }
+  .pricing-plan_odd {
+    @apply odd:bg-white;
+
+    & .list-container {
+      @apply group-odd:bg-[#F9FAFB];
+    }
+
+    & button {
+      @apply group-odd:text-primary odd:bg-white w-full;
+    }
+  }
+
+  .pricing-plan_even {
+    @apply even:text-white even:bg-primary;
+
+    & .list-container {
+      @apply group-even:bg-white;
+    }
+
+    & button {
+      @apply group-even:text-white even:bg-primary;
+    }
+  }
+}
