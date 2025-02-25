@@ -16,7 +16,7 @@ const Pricing = () => {
           <p className="text-light mb-6">
             Choose the plan that works best for you. Feel free to contact us
           </p>
-          <div className="rounded-md flex gap-1 mb-10 p-1 shadow-lg relative">
+          <div className="rounded-md z-1 flex gap-1 mb-10 p-1 shadow-lg relative">
             <button
               className={clsx(
                 "square-btn bg-transparent z-2 transition-transform duration-500",
@@ -42,7 +42,7 @@ const Pricing = () => {
               )}
             ></div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center gap-4 max-sm:flex-col max-lg:flex-wrap">
             {plans.map(
               ({
                 id,
@@ -55,7 +55,7 @@ const Pricing = () => {
               }) => (
                 <div
                   key={id}
-                  className="pricing-card group pricing-plan_odd pricing-plan_even text-center w-1/3 shadow-lg"
+                  className="pricing-card group pricing-plan_odd pricing-plan_even text-center w-1/3 max-lg:w-1/2 max-sm:w-full shadow-lg"
                 >
                   <h3>{title}</h3>
                   <p className="w-3/4 mb-2">{caption}</p>

@@ -1,15 +1,18 @@
 import React from "react";
 import { Star } from "lucide-react";
 import { Element } from "react-scroll";
-import { about } from "../constants";
+import { about } from "../constants/index";
+import LazyLoadComponent from "../components/LazyLoadComponent";
 
 const About = () => {
   return (
     <section className="bg-[#F9F8FE]">
       <Element name="about">
-        <div className="container flex gap-3 ">
-          <div className="left max-w-150 ">
-            <h2>How we support our partners all over the world</h2>
+        <div className="container flex gap-3 max-md:flex-col">
+          <div className="left max-w-150 max-md:mb-10">
+            <h2 className="max-md:mb-3">
+              How we support our partners all over the world
+            </h2>
             <p className="mb-10 text-light text-[16px]">
               SaaS become a common delivery model for many business application,
               including office software, messaging software, payroll processing
@@ -44,17 +47,19 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="right flex flex-col justify-between">
-            {about.map(({ title, id, text, icon }) => (
-              <div className="flex items-start gap-3" key={id}>
-                <div className="bg-white text-primary size-10 text-center place-content-center rounded-sm  ">
-                  M
+          <div className="right flex flex-col justify-between *:max-md:mb-5">
+            {about.map(({ title, id, text, icon }, i) => (
+              <LazyLoadComponent key={id} delay={150 * i}>
+                <div className="flex items-start gap-3">
+                  <div className="bg-white flex items-center justify-center text-primary size-10 text-center place-content-center rounded-sm  ">
+                    {icon}
+                  </div>
+                  <div className="w-9/10 ">
+                    <h3>{title}</h3>
+                    <p className="text-light">{text}</p>
+                  </div>
                 </div>
-                <div className="w-9/10 ">
-                  <h3>{title}</h3>
-                  <p className="text-light">{text}</p>
-                </div>
-              </div>
+              </LazyLoadComponent>
             ))}
           </div>
         </div>

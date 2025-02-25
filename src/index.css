@@ -6,6 +6,7 @@
   --color-gold: #ffc728;
   --color-primary-light: #52bdaa;
   --color-primary-light-200: #54be96;
+  --color-primary-dark: #439777;
   --color-pink-light: #ffd6d6;
   --color-secondary: #161c28;
   --color-secondary-light: #222938;
@@ -14,6 +15,16 @@
   --color-black: #000000;
 
   --breakpoint-xs: 480px;
+  --animate-fade-in: 2s fade-in 1500ms ease-out;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 @layer base {
@@ -22,41 +33,42 @@
     font-optical-sizing: auto;
     background: #ffffff;
     color: #191a15;
+    overflow-x: hidden;
   }
 
   h1 {
-    @apply mx-auto max-w-4xl text-center text-[80px] font-bold leading-tight tracking-[-1%]  sm:text-[64px] sm:leading-[76px] text-text;
+    @apply mx-auto max-w-4xl text-center text-[80px] max-md:text-[50px] max-md:leading-[1.2] font-bold leading-tight tracking-[-1%]  sm:text-[64px] sm:leading-[76px] text-text;
   }
 
   h2 {
-    @apply text-[50px] font-bold leading-tight;
+    @apply text-[50px] font-bold leading-tight max-md:text-[30px];
   }
 
   h3 {
-    @apply text-[30px] font-bold;
+    @apply text-[30px] font-bold max-md:text-[20px];
   }
 
   p {
-    @apply text-base;
+    @apply text-base max-md:text-sm;
   }
   section {
-    @apply px-20 py-10;
+    @apply px-20 py-10 max-md:px-8 max-xs:px-5;
   }
   footer {
-    @apply px-20 py-8 bg-secondary text-white;
+    @apply px-20 py-8 bg-secondary text-white max-md:px-8 max-xs:px-5;
   }
 }
 
 @layer components {
   .rounded-btn {
-    @apply bg-primary text-white rounded-full px-5 py-3 font-medium text-base border-none cursor-pointer;
+    @apply bg-primary text-white rounded-full px-5 py-3 font-medium text-base max-md:text-[14px] border-none cursor-pointer transition duration-300;
   }
   .square-btn {
-    @apply bg-primary text-white rounded-lg px-5 py-2 font-bold text-base border-none cursor-pointer;
+    @apply bg-primary text-white rounded-lg px-5 py-2 font-bold text-base max-md:text-[14px] border-none cursor-pointer transition duration-300;
   }
 
   .nav-li {
-    @apply flex gap-[20px] font-medium text-light;
+    @apply flex gap-[20px] font-medium text-light max-lg:flex-col max-lg:h-full max-lg:gap-16 max-lg:items-center;
 
     & .nav-active {
       @apply text-black;
