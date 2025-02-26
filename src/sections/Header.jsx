@@ -47,10 +47,10 @@ const Header = () => {
 
         <div
           className={clsx(
-            " max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:bg-s2 max-lg:opacity-0 ",
+            " max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:bg-s2  ",
             isOpen
-              ? "max-lg:opacity-100 max-lg:h-full bg-white"
-              : "max-lg:pointer-events-none"
+              ? "block max-lg:h-full bg-white"
+              : "max-lg:pointer-events-none max-lg:hidden"
           )}
         >
           <nav className="max-lg:relative top-24 max-lg:z-4 max-lg:text-xl max-lg:my-auto max-lg:h-4/5 ">

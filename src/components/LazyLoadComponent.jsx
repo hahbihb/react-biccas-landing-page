@@ -10,10 +10,10 @@ const LazyLoadComponent = ({ children, delay }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Stop observing after it's visible
+          observer.disconnect();
         }
       },
-      { threshold: 0.1 } // Trigger when 10% of the element is visible
+      { threshold: 0.1 }
     );
 
     if (elementRef.current) {
