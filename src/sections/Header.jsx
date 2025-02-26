@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header
       className={clsx(
-        "fixed top-0 left-0 z-50 w-full px-20 py-2 max-md:px-8 max-xs:px-5 transition-all duration-500",
+        "fixed top-0 left-0 z-50 w-screen px-20 py-2 max-md:px-8 max-xs:px-5 transition-all duration-500",
         hasScrolled && " backdrop-blur-[8px]"
       )}
     >
